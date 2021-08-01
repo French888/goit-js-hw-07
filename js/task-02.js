@@ -10,12 +10,15 @@ const ingredients = [
     'Зелень',
     'Приправы',
   ];
+
+const ingredientsListEl = document.querySelector('#ingredients')
+const element = ingredients.map(option=>{
+const ingredientLi = document.createElement('li');
+ingredientLi.innerHTML = `<p>${option}</p>`;
+console.log(ingredientLi);
+return ingredientLi;
+})
+ingredientsListEl.append(...element)
+ingredientsListEl.style.listStyle='none'
+
   
-  const ingredientsList = document.querySelector('#ingredients');
-  const element = ingredients.map(option => {
-    const ingredientEl = document.createElement('li');
-    ingredientEl.textContent = option;
-    console.log(ingredientEl);
-    return ingredientEl;
-  })
-  ingredientsList.append(...element);

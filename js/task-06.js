@@ -1,12 +1,35 @@
 // Напиши скрипт, который бы при потере фокуса на инпуте,
 //  проверял его содержимое на правильное количество символов.
 
-const inputEl = document.querySelector('#validation-input');
-inputEl.addEventListener('blur', onInputBlur);
-function onInputBlur(event){
-    if(Number(inputEl.dataset.length) !== inputEl.value.length){
-        inputEl.classList.add('invalid');
-    } else {
-        inputEl.classList.replace('invalid', 'valid')
-    }
-}
+ const inputRef = document.querySelector('#validation-input');
+ inputRef.addEventListener('blur', ()=>{
+     if(inputRef.value.length===Number(inputRef.getAttribute('data-length'))){
+        inputRef.classList.add('valid');
+        inputRef.classList.remove('invalid');
+     }else{
+        inputRef.classList.add('invalid');
+        inputRef.classList.remove('valid');  
+     };
+ });
+
+
+// inputRef.addEventListener('blur', ()=>{
+//     if(inputRef.value.length===Number(inputRef.getAttribute('data-length'))){
+//         toggleClass('valid', 'invalid')   
+//     }else{
+//         toggleClass('invalid', 'valid')
+//     }
+// });
+// function toggleClass(add, rem){
+//     inputRef.classList.add(add);
+//     inputRef.classList.remove(rem);
+// };
+
+// inputRef.onblur = ({target:{value, dataset}})=>value.length===+dataset.length
+// ?toggleClass('valid', 'invalid')
+// :toggleClass('invalid', 'valid')
+
+// function toggleClass(add, rem){
+//         inputRef.classList.add(add);
+//         inputRef.classList.remove(rem);
+//     };
